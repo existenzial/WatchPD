@@ -1,0 +1,23 @@
+{
+  "name": "watchpd",
+  "version": "0.0.1",
+  "description": "an app to keep close watch on what your local police department is up to on a daily basis to encourage public transparency",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/existenzial/WatchPD.git"
+  },
+  "author": "Jazz Lyles <ripley36706@gmail.com> (https://github.com/existenzial)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/existenzial/WatchPD/issues"
+  },
+  "homepage": "https://github.com/existenzial/WatchPD#readme",
+  "dependencies": {
+    "csvtojson": "^1.0.0",
+    "request": "^2.74.0"
+  }
+}

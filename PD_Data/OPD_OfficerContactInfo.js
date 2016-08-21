@@ -1,28 +1,25 @@
 `use strict`
 
 const fs = require("fs");
+const request = require("request");
+
 const PDFParser = require("../node_modules/pdf2json/PDFParser");
-//const pdfParser = new PDFParser();
+const pdfParser = new PDFParser();
 
 module.exports = function (input, output) {
 
-  input = fs.createReadStream( input, { bufferSize: 64 * 1024 });
-  output = fs.createWriteStream( output );
+  var pdfPipe = request({
+    url: input,
+    headers: {
+      'Content-Type': 'application/pdf'
+    },
+    encoding: null }).pipe( pdfParser );
+//header('Content-Disposition:attachment;filename=document.pdf');
 
-  input.pipe( new PDFParser() ).pipe( JSON.stringify() ).pipe( output );
-
-  console.log(output);
-
-  /***********************
-  ALTERNATE PARSING METHOD
-  **********************
-  pdfParser.loadPDF("./pdf/OPD_OfficerContactInfo.pdf");
-
-  pdfParser.on("pdfParser_dataError", errData => console.error(errData.parserError));
-
-  pdfParser.on("pdfParser_dataReady", pdfData => {
-    fs.writeFile("./OPD_OfficerContactInfo.json", JSON.stringify(pdfData));
-    console.log(JSON.stringify(pdfData));
+  pdfPipe.on( "pdfParser_dataError", err => console.error(err) );
+  pdfPipe.on( "pdfParser_dataReady", pdf => {
+    fs.writeFile( `./PD_Data/json/${output}`, JSON.stringify(pdf) );
+    console.log( JSON.stringify(pdf) );
   });
-  ************************/
+
 };

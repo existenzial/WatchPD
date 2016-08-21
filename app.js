@@ -1,10 +1,23 @@
 //Converter Class
 const Converter = require("csvtojson").Converter;
-const converter = new Converter({ constructResult:false }); //for big csv data
+const converter = new Converter({});
+const ftp = require("ftp-get");
 
-//record_parsed will be emitted each csv row being processed
-converter.on("record_parsed", function (jsonObj) {
-   console.log( jsonObj ); //here is your result json object
+ftp.get({
+    url: 'ftp://crimewatchdata.oaklandnet.com/crimePublicData.csv',
+    bufferType: 'buffer'
+}, function (error, result) {
+    if (error) {
+        console.error(error);
+    } else {
+      result = result.toString();
+      converter.fromString(result, function(err, res){
+        //console.log('The CSV contents: ' + JSON.stringify(res));
+      });
+    }
 });
 
-require("request").get("ftp://crimewatchdata.oaklandnet.com/crimePublicData.csv").pipe(converter);
+//record_parsed emits each csv row
+converter.on("record_parsed", function (jsonObj) {
+   console.log( jsonObj ); //parsed csv data
+});

@@ -18,6 +18,6 @@ ftp.get({
 });
 
 //record_parsed emits each csv row
-converter.on("record_parsed", function (jsonObj) {
-   console.log( jsonObj ); //parsed csv data
+converter.on("record_parsed", function (policeDataObj) {
+   console.log( policeDataObj ); //parsed csv data
 });

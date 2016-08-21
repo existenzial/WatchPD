@@ -1,3 +1,5 @@
+`use strict`
+
 const Converter = require("csvtojson").Converter;
 const converter = new Converter({});
 const ftp = require("ftp-get");

@@ -16,6 +16,7 @@
   "homepage": "https://github.com/existenzial/WatchPD#readme",
   "dependencies": {
     "csvtojson": "^1.0.0",
-    "ftp-get": "^0.3.1"
+    "ftp-get": "^0.3.1",
+    "pdf2json": "^1.1.6"
   }
 }

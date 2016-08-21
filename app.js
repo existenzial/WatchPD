@@ -7,6 +7,8 @@ OPD_Calls();
 
 OPD_JSONData("./PD_Data/pdf/OPD_OfficerContactInfo.pdf", "./PD_Data/json/OPD_OfficerContactInfo.json");
 
-OPD_JSONData("OPD_StopStats_Dec2015.pdf", "./PD_Data/json/OPD_StopStats.json");
+OPD_JSONData("./PD_Data/pdf/OPD_StopStats_Dec2015.pdf", "./PD_Data/json/OPD_StopStats.json");
 
-OPD_JSONData("OPD_UseOfForceStats_May2016.pdf", "./PD_Data/json/OPD_UseOfForceStats.json");
+OPD_JSONData("./PD_Data/pdf/OPD_UseOfForceStats_May2016.pdf", "./PD_Data/json/OPD_UseOfForceStats.json");
+
+OPD_JSONData("./PD_Data/pdf/OPD_InternalAffairsStats_June2016.pdf", "./PD_Data/json/OPD_InternalAffairsStats.json");

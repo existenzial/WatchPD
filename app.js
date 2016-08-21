@@ -1,10 +1,9 @@
-//Converter Class
 const Converter = require("csvtojson").Converter;
 const converter = new Converter({});
 const ftp = require("ftp-get");
 
 ftp.get({
-    url: 'ftp://crimewatchdata.oaklandnet.com/crimePublicData.csv',
+    url: process.env.OPD_URL,
     bufferType: 'buffer'
 }, function (error, result) {
     if (error) {

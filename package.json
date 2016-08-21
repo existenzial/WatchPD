@@ -3,9 +3,7 @@
   "version": "0.0.1",
   "description": "an app to keep close watch on what your local police department is up to on a daily basis to encourage public transparency",
   "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/existenzial/WatchPD.git"

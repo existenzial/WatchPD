@@ -9,12 +9,11 @@ const pdfParser = new PDFParser();
 module.exports = function (input, output) {
 
   var pdfPipe = request({
-    url: input,
+    url: `http://www2.oaklandnet.com/oakca1/groups/police/documents/webcontent/${input}`,
     headers: {
       'Content-Type': 'application/pdf'
     },
     encoding: null }).pipe( pdfParser );
-//header('Content-Disposition:attachment;filename=document.pdf');
 
   pdfPipe.on( "pdfParser_dataError", err => console.error(err) );
   pdfPipe.on( "pdfParser_dataReady", pdf => {
